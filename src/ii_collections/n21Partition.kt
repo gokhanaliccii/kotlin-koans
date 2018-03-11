@@ -10,7 +10,10 @@ fun example8() {
     negative == listOf(-4, -11)
 }
 
+//FIXME
 fun Shop.getCustomersWithMoreUndeliveredOrdersThanDelivered(): Set<Customer> {
-    // Return customers who have more undelivered orders than delivered
-    todoCollectionTask()
+    val allOrders = this.customers.flatMap { it.orders }
+
+    val first = allOrders.partition { !it.isDelivered }
+    return emptySet()
 }
