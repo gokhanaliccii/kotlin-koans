@@ -17,23 +17,6 @@ val Customer.orderedProducts: Set<Product>
 
 val Shop.allOrderedProducts: Set<Product>
     get() {
-        // Return all products that were ordered by at least one customer
-        todoCollectionTask()
+        return this.customers.flatMap { it.orders }
+                .flatMap { it.products }.toSet()
     }
-
-
-fun main(ars: Array<String>) {
-
-    class Person<T> {
-
-        fun process(a: T) {
-            print(a?.hashCode())
-
-            print("called")
-        }
-    }
-
-    fun <T> isA(value: Any) = value is T
-
-
-}
