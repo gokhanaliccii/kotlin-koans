@@ -1,6 +1,10 @@
 package ii_collections
 
 fun Shop.getCustomersWhoOrderedProduct(product: Product): Set<Customer> {
+
+    this.customers.flatMap { it.orders }.flatMap { it.products }
+
+
     // Return the set of customers who ordered the specified product
     todoCollectionTask()
 }
